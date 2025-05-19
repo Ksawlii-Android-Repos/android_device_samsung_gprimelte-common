@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2017 The LineageOS Project
+# Copyright (C) 2025 The LineageOS Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -13,12 +13,13 @@
 #  See the License for the specific language governing permissions and
 #  limitations under the License.
 #
+# Inherit langs
 $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 
 # Inherit from common
 $(call inherit-product, device/samsung/msm8916-common/msm8916.mk)
 
-#Inherit from vendor
+# Inherit from vendor
 $(call inherit-product-if-exists, vendor/samsung/gprimelte-common/gprimelte-common-vendor.mk)
 
 DEVICE_PATH := device/samsung/gprimelte-common
@@ -27,7 +28,7 @@ DEVICE_PATH := device/samsung/gprimelte-common
 DEVICE_PACKAGE_OVERLAYS += \
 	$(DEVICE_PATH)/overlay \
 
-# append the updater uri to the product properties if set
+# Append the updater uri to the product properties if set
 ifneq ($(CM_UPDATER_OTA_URI),)
 	PRODUCT_PROPERTY_OVERRIDES += $(CM_UPDATER_OTA_URI)
 endif
@@ -37,11 +38,11 @@ $(call inherit-product, frameworks/native/build/phone-xhdpi-1024-dalvik-heap.mk)
 
 # Permissions
 PRODUCT_COPY_FILES += \
-        frameworks/native/data/etc/android.hardware.audio.low_latency.xml:system/etc/permissions/android.hardware.audio.low_latency.xml
+    frameworks/native/data/etc/android.hardware.audio.low_latency.xml:system/etc/permissions/android.hardware.audio.low_latency.xml
 
 # Permissions
 PRODUCT_COPY_FILES += \
-        frameworks/native/data/etc/android.hardware.camera.flash-autofocus.xml:system/etc/permissions/android.hardware.camera.flash-autofocus.xml
+    frameworks/native/data/etc/android.hardware.camera.flash-autofocus.xml:system/etc/permissions/android.hardware.camera.flash-autofocus.xml
 
 # Media configurations
 PRODUCT_COPY_FILES += \
@@ -50,26 +51,25 @@ PRODUCT_COPY_FILES += \
 
 # Permissions
 PRODUCT_COPY_FILES += \
-        frameworks/native/data/etc/android.hardware.telephony.cdma.xml:system/etc/permissions/android.hardware.telephony.cdma.xml \
-        frameworks/native/data/etc/android.hardware.telephony.gsm.xml:system/etc/permissions/android.hardware.telephony.gsm.xml
+		frameworks/native/data/etc/android.hardware.telephony.cdma.xml:system/etc/permissions/android.hardware.telephony.cdma.xml \
+  	frameworks/native/data/etc/android.hardware.telephony.gsm.xml:system/etc/permissions/android.hardware.telephony.gsm.xml
 
 # Ramdisk
 PRODUCT_PACKAGES += \
-        init.target.rc
+  	init.target.rc
 
 # RIL
 PRODUCT_PACKAGES += \
-    libril \
-    librilutils \
-    rild
+		libril \
+  	librilutils \
+  	rild
 
 # Permissions
 PRODUCT_COPY_FILES += \
-        frameworks/native/data/etc/android.hardware.sensor.compass.xml:system/etc/permissions/android.hardware.sensor.compass.xml \
-        frameworks/native/data/etc/android.hardware.sensor.gyroscope.xml:system/etc/permissions/android.hardware.sensor.gyroscope.xml \
-        frameworks/native/data/etc/android.hardware.sensor.light.xml:system/etc/permissions/android.hardware.sensor.light.xml \
-        frameworks/native/data/etc/android.hardware.sensor.proximity.xml:system/etc/permissions/android.hardware.sensor.proximity.xml
+    frameworks/native/data/etc/android.hardware.sensor.compass.xml:system/etc/permissions/android.hardware.sensor.compass.xml \
+    frameworks/native/data/etc/android.hardware.sensor.gyroscope.xml:system/etc/permissions/android.hardware.sensor.gyroscope.xml \
+    frameworks/native/data/etc/android.hardware.sensor.light.xml:system/etc/permissions/android.hardware.sensor.light.xml \
+    frameworks/native/data/etc/android.hardware.sensor.proximity.xml:system/etc/permissions/android.hardware.sensor.proximity.xml
 
 # Proprieties
 -include $(DEVICE_PATH)/system_prop.mk
-

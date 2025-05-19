@@ -1,5 +1,3 @@
-# android_device_samsung_gprimelte-common
-
 ## Common device tree for Samsung Galaxy Grand Prime LTE devices
 
 Basic   | Spec Sheet
